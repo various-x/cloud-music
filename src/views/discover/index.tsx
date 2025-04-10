@@ -1,8 +1,11 @@
-const component: React.FC = () => {
+import { Outlet } from "react-router-dom";
+
+const Discover: React.FC = () => {
     return (
         <div>
-            发现音乐
+          我的发现
+            <Outlet />
         </div>
     )
 }
-export default component;
+export default Discover;
