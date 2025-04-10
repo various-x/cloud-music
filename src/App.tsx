@@ -1,35 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Suspense } from "react"
+import { Link, Outlet } from "react-router-dom"
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div>
+      <div className="App">
+        <div className="nav">
+          <Link to="/discover">发现音乐</Link>
+          <Link to="/mime">我的音乐</Link>
+          <Link to="/focus">关注</Link>
+          <Link to="/focus" target="_blank">商城</Link>
+          <Link to="/mime">音乐人</Link>
+          <Link to="/mime">云推歌</Link>
+          <Link to="/download">下载客户端</Link>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      <Suspense fallback=''>
+        <Outlet />
+      </Suspense>
+    </div>
   )
+  
 }
 
 export default App
